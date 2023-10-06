@@ -9,6 +9,8 @@ import '../datasources/post_local_data_source.dart';
 import '../datasources/post_remote_data_source.dart';
 import 'package:clean_arch_posts_app/core/network/network_info.dart';
 
+typedef DeleteOrUpdateOrAddPost = Future<Unit> Function();
+
 class PostRepositoriesImp implements PostsRepositories {
   final PostRemoteDataSource postRemoteDataSource;
   final PostLocalDataSource postLocalDataSource;
@@ -57,7 +59,7 @@ class PostRepositoriesImp implements PostsRepositories {
   }
 
   Future<Either<Failure, Unit>> _getMessage(
-      Future<Unit> Function() deleteOrUpdateOrAddPost) async {
+      DeleteOrUpdateOrAddPost deleteOrUpdateOrAddPost) async {
     if (await netWorkInfo.isConnected) {
       try {
         await deleteOrUpdateOrAddPost();

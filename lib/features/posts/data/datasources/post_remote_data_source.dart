@@ -22,15 +22,44 @@ class PostRemoteDataSourceImpl implements PostRemoteDataSource {
   PostRemoteDataSourceImpl({required this.dio});
 
   @override
-  Future<Unit> addPost(Post post) {
-    // TODO: implement addPost
-    throw UnimplementedError();
+  Future<Unit> addPost(Post post) async {
+    final body = {
+      'title': post.title,
+      'body': post.body,
+    };
+    final response = await dio.post(
+      '$BASE_URL/posts',
+      options: Options(
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': '*/*',
+        },
+      ),
+      data: body,
+    );
+    if (response.statusCode == 201) {
+      return Future.value(unit);
+    } else {
+      throw ServerException();
+    }
   }
 
   @override
-  Future<Unit> deletePost(int id) {
-    // TODO: implement deletePost
-    throw UnimplementedError();
+  Future<Unit> deletePost(int id) async {
+    final response = await dio.delete(
+      '$BASE_URL/posts/${id.toString()}',
+      options: Options(
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': '*/*',
+        },
+      ),
+    );
+    if (response.statusCode == 200) {
+      return Future.value(unit);
+    } else {
+      throw ServerException();
+    }
   }
 
   @override
@@ -56,8 +85,27 @@ class PostRemoteDataSourceImpl implements PostRemoteDataSource {
   }
 
   @override
-  Future<Unit> updatePost(Post post) {
-    // TODO: implement updatePost
-    throw UnimplementedError();
+  Future<Unit> updatePost(Post post) async {
+    final postID = post.id.toString();
+    final body = {
+      'title': post.title,
+      'body': post.body,
+    };
+    final response = await dio.patch(
+      '$BASE_URL/posts/${postID}',
+      data: body,
+      options: Options(
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': '*/*',
+        },
+      ),
+    );
+
+    if (response.statusCode == 200) {
+      return Future.value(unit);
+    } else {
+      throw ServerException();
+    }
   }
 }
