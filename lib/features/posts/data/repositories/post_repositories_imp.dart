@@ -17,7 +17,7 @@ class PostRepositoriesImp implements PostsRepositories {
   final NetworkInfo netWorkInfo;
 
   PostRepositoriesImp(
-      this.postRemoteDataSource, this.postLocalDataSource, this.netWorkInfo);
+      {required this.postRemoteDataSource,required this.postLocalDataSource,required this.netWorkInfo});
 
   @override
   Future<Either<Failure, Unit>> addPost(Post post) async {
