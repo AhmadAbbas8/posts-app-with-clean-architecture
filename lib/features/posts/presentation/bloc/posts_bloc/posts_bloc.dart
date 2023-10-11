@@ -1,7 +1,6 @@
 import 'package:clean_arch_posts_app/core/error/failure.dart';
 import 'package:clean_arch_posts_app/core/strings/failure.dart';
 import 'package:clean_arch_posts_app/features/posts/domain/usecases/get_all_posts.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:clean_arch_posts_app/features/posts/domain/entities/post.dart';
 import 'package:equatable/equatable.dart';
