@@ -1,4 +1,5 @@
 import 'package:clean_arch_posts_app/features/posts/domain/entities/post.dart';
+import 'package:clean_arch_posts_app/features/posts/presentation/screens/post_detail_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class PostListWidget extends StatelessWidget {
     return ListView.separated(
       itemBuilder: (context, index) => ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-        onTap: () {},
+        onTap: () =>Navigator.push(context, MaterialPageRoute(builder: (_) => PostDetailPage(post: posts[index]),)),
         leading: Text(
           posts[index].id.toString(),
           style: const TextStyle(
