@@ -1,5 +1,6 @@
 import 'package:clean_arch_posts_app/core/widgets/loading_widget.dart';
 import 'package:clean_arch_posts_app/features/posts/presentation/bloc/posts_bloc/posts_bloc.dart';
+import 'package:clean_arch_posts_app/features/posts/presentation/screens/post_add_update.dart';
 import 'package:clean_arch_posts_app/features/posts/presentation/widgets/message_display_widget.dart';
 import 'package:clean_arch_posts_app/features/posts/presentation/widgets/post_list_widget.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class PostsScreen extends StatelessWidget {
     return Scaffold(
       appBar: appBar,
       body: body,
-      floatingActionButton: floatingActionButton,
+      floatingActionButton: floatingActionButton(context),
     );
   }
 
@@ -40,14 +41,17 @@ class PostsScreen extends StatelessWidget {
         ),
       );
 
-  Future<void> _onRefresh(BuildContext context) async {
-    {
+  Future<void> _onRefresh(BuildContext context) async =>
       context.read<PostsBloc>().add(RefreshPostsEvent());
-    }
-  }
 
-  Widget get floatingActionButton => FloatingActionButton(
-        onPressed: () {},
+  Widget  floatingActionButton(context) => FloatingActionButton(
+        onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_ ) =>const PostAddUpdateScreen(
+                isUpdatePost: false,
+              ),
+            )),
         child: const Icon(Icons.add),
       );
 }

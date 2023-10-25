@@ -13,7 +13,13 @@ class PostListWidget extends StatelessWidget {
       itemBuilder: (context, index) => ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 10),
         onTap: () {},
-        leading: Text(posts[index].id.toString()),
+        leading: Text(
+          posts[index].id.toString(),
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+          textAlign: TextAlign.center,
+        ),
         title: Text(
           posts[index].title,
           style: const TextStyle(
