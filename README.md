@@ -1,16 +1,28 @@
-# clean_arch_posts_app
+# Flutter Posts App with clean architecture and clean Code
 
-A new Flutter project.
+A Flutter Posts App with clean architecture
+
+Star this repo if you like what you see.
+
+*Packages I use:*
+
+- flutter_bloc: [link](https://pub.dev/packages/flutter_bloc) 
+- dartz: [link](https://pub.dev/packages/dartz)
+- get_it: [link](https://pub.dev/packages/get_it)
+- equatable: [link](https://pub.dev/packages/equatable)
+- internet_connection_checker: [link](https://pub.dev/packages/internet_connection_checker)
+- dio: [link](https://pub.dev/packages/dio)
+- shared_preferences: [link](https://pub.dev/packages/shared_preferences)
+
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+**Note**: Make sure your Flutter environment is setup.
+#### Installation
 
-A few resources to get you started if this is your first Flutter project:
+In the command terminal, run the following commands:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    $ git clone https://github.com/AhmadAbbas8/posts-app-with-clean-architecture.git
+    $ cd posts-app-with-clean-architecture/
+    $ flutter pub get
+    $ flutter run
